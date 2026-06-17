@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agata Beksha · Data Analytics & Marketing</title>
+<meta name="description" content="Agata Beksha's analytics portfolio: customer segmentation, revenue modeling, and marketing analytics work from Tulane Freeman School of Business.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --ink: #1B3A5C;
+    --paper: #FFFFFF;
+    --paper-warm: #EAF2FA;
+    --gold: #3D7EBF;
+    --gold-bright: #4D8FD4;
+    --teal: #2C5F8A;
+    --teal-light: #6FA8DC;
+    --line: rgba(27,58,92,0.14);
+    --line-soft: rgba(27,58,92,0.08);
+    --ink-soft: rgba(27,58,92,0.65);
+    --ink-faint: rgba(27,58,92,0.45);
+
+    --display: 'Fraunces', serif;
+    --body: 'Inter', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  img { max-width: 100%; display: block; }
+
+  .wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  @media (max-width: 640px) {
+    .wrap { padding: 0 20px; }
+  }
+
+  /* ---------- Nav ---------- */
+
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(250,248,244,0.88);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  nav .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .nav-mark {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  .nav-mark span { color: var(--gold); }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink-soft);
+  }
+
+  .nav-links a { transition: color 0.15s; }
+  .nav-links a:hover { color: var(--ink); }
+
+  .nav-links .resume-link {
+    color: var(--ink);
+    padding: 8px 16px;
+    border: 1px solid var(--ink);
+    border-radius: 2px;
+    transition: background 0.15s, color 0.15s;
+  }
+  .nav-links .resume-link:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  @media (max-width: 720px) {
+    .nav-links { gap: 16px; font-size: 13px; }
+    .nav-links .extra { display: none; }
+  }
+
+  /* ---------- Hero ---------- */
+
+  header.hero {
+    padding: 96px 0 72px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+
+  .eyebrow::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold-bright);
+    display: inline-block;
+  }
+
+  h1.headline {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(38px, 6vw, 68px);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    max-width: 880px;
+    margin-bottom: 28px;
+  }
+
+  h1.headline em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--teal);
+  }
+
+  .hero-sub {
+    font-size: 19px;
+    color: var(--ink-soft);
+    max-width: 600px;
+    margin-bottom: 40px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 64px;
+  }
+
+  .btn {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 13px 26px;
+    border-radius: 2px;
+    transition: all 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-primary {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .btn-primary:hover { background: var(--teal); }
+
+  .btn-secondary {
+    border: 1px solid var(--line);
+    color: var(--ink);
+  }
+  .btn-secondary:hover { border-color: var(--ink); background: var(--paper-warm); }
+
+  /* Segment bar - signature element */
+  .segment-bar {
+    display: flex;
+    height: 14px;
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 14px;
+  }
+
+  .segment-bar .seg { height: 100%; }
+
+  .segment-legend {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-faint);
+  }
+
+  .segment-legend .item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .segment-legend .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .seg-explorer, .dot-explorer { background: #BFDCF2; }
+  .seg-bronze, .dot-bronze { background: #8AC0E8; }
+  .seg-silver, .dot-silver { background: #4D8FD4; }
+  .seg-gold, .dot-gold { background: #1B3A5C; }
+
+  /* ---------- Section headers ---------- */
+
+  .section {
+    padding: 88px 0;
+    border-top: 1px solid var(--line-soft);
+  }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 56px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  h2.section-title {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(28px, 4vw, 40px);
+    letter-spacing: -0.01em;
+  }
+
+  .section-note {
+    font-size: 14px;
+    color: var(--ink-faint);
+    max-width: 280px;
+    text-align: right;
+  }
+
+  @media (max-width: 640px) {
+    .section { padding: 64px 0; }
+    .section-note { text-align: left; max-width: 100%; }
+  }
+
+  /* ---------- Case Studies ---------- */
+
+  .case {
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    background: white;
+    margin-bottom: 28px;
+    overflow: hidden;
+  }
+
+  .case-head {
+    padding: 36px 40px 28px;
+    border-bottom: 1px solid var(--line-soft);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .case-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--teal);
+    background: rgba(61,107,102,0.08);
+    padding: 5px 10px;
+    border-radius: 2px;
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+
+  .case-title {
+    font-family: var(--display);
+    font-size: 26px;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .case-role {
+    font-size: 14px;
+    color: var(--ink-faint);
+  }
+
+  .case-stats {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    text-align: right;
+  }
+
+  .stat .num {
+    font-family: var(--mono);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--ink);
+    display: block;
+  }
+
+  .stat .lbl {
+    font-size: 11px;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .case-body {
+    padding: 32px 40px 40px;
+  }
+
+  .case-body p {
+    color: var(--ink-soft);
+    font-size: 15.5px;
+    margin-bottom: 18px;
+    max-width: 760px;
+  }
+
+  .case-body p:last-child { margin-bottom: 0; }
+
+  .case-body strong { color: var(--ink); font-weight: 600; }
+
+  .case-section-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    margin: 28px 0 10px;
+    display: block;
+  }
+  .case-section-label:first-child { margin-top: 0; }
+
+  .tier-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0 28px;
+    font-size: 14px;
+  }
+
+  .tier-table th {
+    text-align: left;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-faint);
+    padding: 8px 16px 8px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .tier-table td {
+    padding: 12px 16px 12px 0;
+    border-bottom: 1px solid var(--line-soft);
+    color: var(--ink-soft);
+  }
+
+  .tier-table td:first-child {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .tier-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+  }
+
+  .case-footer {
+    padding: 20px 40px;
+    background: var(--paper-warm);
+    border-top: 1px solid var(--line-soft);
+    font-size: 13px;
+    color: var(--ink-faint);
+    font-style: italic;
+  }
+
+  @media (max-width: 640px) {
+    .case-head, .case-body, .case-footer { padding-left: 24px; padding-right: 24px; }
+    .case-stats { gap: 20px; }
+    .stat .num { font-size: 18px; }
+  }
+
+  /* ---------- Skills ---------- */
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .skill-group {
+    background: white;
+    padding: 28px 28px;
+  }
+
+  .skill-group h3 {
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--teal);
+    margin-bottom: 16px;
+  }
+
+  .skill-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .skill-item {
+    font-size: 14.5px;
+    color: var(--ink);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .skill-item span.note {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+  }
+
+  @media (max-width: 760px) {
+    .skills-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Trajectory / About ---------- */
+
+  .trajectory {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .trajectory-text p {
+    color: var(--ink-soft);
+    font-size: 16px;
+    margin-bottom: 20px;
+    max-width: 540px;
+  }
+
+  .trajectory-text strong { color: var(--ink); }
+
+  .timeline {
+    border-left: 1px solid var(--line);
+    padding-left: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
+
+  .tl-item {
+    position: relative;
+  }
+
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -33px;
+    top: 4px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--gold-bright);
+    border: 2px solid var(--paper);
+  }
+
+  .tl-date {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+  }
+
+  .tl-role {
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 2px;
+  }
+
+  .tl-org {
+    font-size: 13.5px;
+    color: var(--ink-faint);
+  }
+
+  @media (max-width: 760px) {
+    .trajectory { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  /* ---------- Future focus banner ---------- */
+
+  .focus-banner {
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 4px;
+    padding: 48px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .focus-banner .label {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold-bright);
+    margin-bottom: 12px;
+  }
+
+  .focus-banner h3 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(22px, 3vw, 30px);
+    max-width: 600px;
+    line-height: 1.3;
+  }
+
+  .focus-banner .btn-primary {
+    background: var(--gold-bright);
+    color: var(--ink);
+    white-space: nowrap;
+  }
+  .focus-banner .btn-primary:hover { background: var(--paper); }
+
+  @media (max-width: 640px) {
+    .focus-banner { padding: 32px 28px; }
+  }
+
+  /* ---------- Contact / Footer ---------- */
+
+  footer {
+    border-top: 1px solid var(--line-soft);
+    padding: 64px 0 40px;
+  }
+
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+
+  .footer-cta h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(26px, 4vw, 36px);
+    margin-bottom: 12px;
+    max-width: 480px;
+  }
+
+  .footer-cta p {
+    color: var(--ink-soft);
+    font-size: 15px;
+    max-width: 420px;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 14.5px;
+  }
+
+  .footer-links a {
+    color: var(--ink-soft);
+    transition: color 0.15s;
+  }
+  .footer-links a:hover { color: var(--ink); }
+
+  .footer-bottom {
+    border-top: 1px solid var(--line-soft);
+    padding-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .footer-bottom .mono { font-family: var(--mono); }
+
+  @media (max-width: 640px) {
+    .footer-top { flex-direction: column; }
+  }
+
+  /* ---------- Reveal animation ---------- */
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* Focus visibility */
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--teal);
+    outline-offset: 3px;
+  }
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#top" class="nav-mark">AGATA BEKSHA<span>.</span></a>
+    <div class="nav-links">
+      <a href="#work" class="extra">Work</a>
+      <a href="#skills" class="extra">Skills</a>
+      <a href="#about" class="extra">About</a>
+      <a href="#contact">Contact</a>
+      <a href="resume.pdf" target="_blank" rel="noopener" class="resume-link">Résumé ↗</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow">Data Analytics &amp; Marketing, New Orleans LA</div>
+    <h1 class="headline">I turn messy data into <em>decisions worth making.</em></h1>
+    <p class="hero-sub">
+      I'm Agata Beksha, a Master of Business Analytics &amp; AI candidate at Tulane's Freeman School of Business.
+      I find the segment hiding in 60 million rows, model what it's worth, and build the dashboard that makes
+      someone act on it. Currently looking for analytics roles where that's the whole job.
+    </p>
+    <div class="hero-actions">
+      <a href="#work" class="btn btn-primary">See the work ↓</a>
+      <a href="#contact" class="btn btn-secondary">Get in touch</a>
+    </div>
+
+    <div class="segment-bar" aria-hidden="true">
+      <div class="seg seg-explorer" style="width:67.4%"></div>
+      <div class="seg seg-bronze" style="width:27.2%"></div>
+      <div class="seg seg-silver" style="width:4.6%"></div>
+      <div class="seg seg-gold" style="width:0.9%"></div>
+    </div>
+    <div class="segment-legend">
+      <span class="item"><span class="dot dot-explorer"></span>Explorers</span>
+      <span class="item"><span class="dot dot-bronze"></span>Bronze</span>
+      <span class="item"><span class="dot dot-silver"></span>Silver</span>
+      <span class="item"><span class="dot dot-gold"></span>Gold</span>
+      <span class="item" style="color:var(--ink-faint)">The four customer tiers from the case study below</span>
+    </div>
+  </div>
+</header>
+
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-label">Selected Work</div>
+        <h2 class="section-title">Case studies</h2>
+      </div>
+      <p class="section-note">Two projects, two different problems: retention economics for an established company, and credit access for a market banks won't touch.</p>
+    </div>
+
+    <!-- CASE 1: Premium Parking -->
+    <article class="case reveal">
+      <div class="case-head">
+        <div>
+          <span class="case-tag">Business Analyst Internship</span>
+          <h3 class="case-title">Premium Parking: Customer Retention &amp; Loyalty Strategy</h3>
+          <p class="case-role">Capstone practicum · with partner Eli Scher, under Director of BI Zack Widdoss · Spring 2026</p>
+        </div>
+        <div class="case-stats">
+          <div class="stat"><span class="num">60M+</span><span class="lbl">Transactions analyzed</span></div>
+          <div class="stat"><span class="num">95</span><span class="lbl">Locations modeled</span></div>
+          <div class="stat"><span class="num">4</span><span class="lbl">Customer tiers identified</span></div>
+        </div>
+      </div>
+      <div class="case-body">
+        <span class="case-section-label">The Problem</span>
+        <p>
+          Premium Parking is a technology-driven parking operator in New Orleans running a unified SQL data
+          warehouse across transaction, occupancy, pricing, and location data. Most customers parked once and
+          never came back, and nobody had quantified how much of that was actually preventable churn versus
+          one-time visitors who were never coming back anyway.
+        </p>
+
+        <span class="case-section-label">What I Did</span>
+        <p>
+          I extracted and cleaned the transaction-level dataset directly from SQL and did the bulk of the
+          analytical coding myself (AI-assisted via Copilot for speed, fully reviewed and validated). Rather
+          than impose arbitrary frequency buckets, I let the data define its own groups. Four natural
+          customer segments emerged from visit-frequency breakpoints already present in the behavior:
+        </p>
+
+        <table class="tier-table">
+          <thead>
+            <tr><th>Tier</th><th>Visit frequency</th><th>Share of customers</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="tier-dot dot-explorer"></span>Explorers</td><td>1 visit</td><td>Largest single segment</td></tr>
+            <tr><td><span class="tier-dot dot-bronze"></span>Bronze</td><td>2–5 visits</td><td>Second-largest segment</td></tr>
+            <tr><td><span class="tier-dot dot-silver"></span>Silver</td><td>6–20 visits</td><td>Small, high-value segment</td></tr>
+            <tr><td><span class="tier-dot dot-gold"></span>Gold</td><td>20+ visits</td><td>Smallest, highest-loyalty segment</td></tr>
+          </tbody>
+        </table>
+
+        <p>
+          On top of that segmentation, I designed a 3-tier loyalty program with deliberately asymmetric
+          incentives. Discounts where they'd actually change behavior (Explorers and Bronze), and status
+          perks rather than discounts for Silver and Gold, since those customers weren't price-sensitive and
+          discounting them would have just given away margin for free. To test whether the strategy was
+          worth building, I ran a Monte Carlo simulation (1,000 simulations per scenario) modeling revenue
+          impact under different tier-upgrade adoption rates, then built a phased rollout plan sequenced
+          around the company's highest-revenue locations and seasonal demand patterns.
+        </p>
+
+        <span class="case-section-label">Result</span>
+        <p>
+          The simulation showed a clear, positive return even under conservative adoption assumptions, net
+          of all projected discount and points costs. It was strong enough that we presented it as a full go-to-market
+          plan, including a three-phase geographic rollout and a launch date timed ahead of the company's
+          seasonal peak. <strong>Exact financial figures are covered by an internal NDA and aren't shared
+          publicly</strong>; I'm glad to walk through the actual numbers and methodology in an interview.
+        </p>
+      </div>
+      <div class="case-footer">
+        Note: this was a capstone practicum project for the Freeman School, not a paid deliverable. The
+        strategy was presented to leadership but has not yet been implemented.
+      </div>
+    </article>
+
+    <!-- CASE 2: Second Line Capital -->
+    <article class="case reveal">
+      <div class="case-head">
+        <div>
+          <span class="case-tag">Team Lead · Freeman AI Innovation Challenge</span>
+          <h3 class="case-title">Second Line Capital: AI Micro-Lending for NOLA Small Businesses</h3>
+          <p class="case-role">Tulane Freeman AI Innovation Challenge, with BoodleBox · April 2026</p>
+        </div>
+        <div class="case-stats">
+          <div class="stat"><span class="num">$5K–50K</span><span class="lbl">Loan range</span></div>
+          <div class="stat"><span class="num">24 hrs</span><span class="lbl">Underwriting time</span></div>
+          <div class="stat"><span class="num">~93%</span><span class="lbl">Lower cost vs. manual</span></div>
+        </div>
+      </div>
+      <div class="case-body">
+        <span class="case-section-label">The Problem</span>
+        <p>
+          New Orleans has roughly 16,000 small businesses, many of them cash-heavy, seasonal, and tourism-driven,
+          including restaurants and food trucks that traditional banks routinely reject because FICO scoring can't read
+          cash flow, collateral, or community trust. Black-owned businesses in particular face dramatically
+          higher denial rates, and most of the businesses turned down aren't actually failing; they're just
+          invisible to the underwriting model.
+        </p>
+
+        <span class="case-section-label">My Role</span>
+        <p>
+          As team lead, I helped shape the core concept alongside my team and then built the public-facing
+          website for the venture. The idea: an AI underwriting engine, the "Second Line Score," that reads
+          POS transaction history, review sentiment, social engagement, and event bookings instead of a credit
+          bureau file, issuing decisions in 24 hours instead of weeks. Repayment is revenue-based (a percentage
+          of daily POS receipts, capped and self-correcting), so a slow week doesn't trigger default the way a
+          fixed loan payment would.
+        </p>
+
+        <span class="case-section-label">The Pitch</span>
+        <p>
+          We modeled a four-year path from a 75-loan pilot to operating profitability, with the long-term
+          business positioned not as lending itself but as licensing the underlying credit-scoring model to
+          CDFIs and community banks in other underbanked cities once it's proven in New Orleans. We didn't
+          place in the competition, but the team carried the idea through a full business model, a financial
+          model, and a live site, the complete loop from problem to pitch.
+        </p>
+      </div>
+      <div class="case-footer">
+        Submitted to the Freeman AI Innovation Challenge, Tulane University · did not place · all figures from
+        the team's own financial model and publicly cited sources (Federal Reserve SBCS, U.S. Census Bureau,
+        SBA).
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="skills">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-label">Toolkit</div>
+        <h2 class="section-title">Skills &amp; tools</h2>
+      </div>
+      <p class="section-note">What I actually use day to day, grouped by what it's for rather than alphabetized for show.</p>
+    </div>
+
+    <div class="skills-grid reveal">
+      <div class="skill-group">
+        <h3>Data &amp; Analysis</h3>
+        <div class="skill-list">
+          <div class="skill-item">SQL <span class="note">extraction, joins, cleaning</span></div>
+          <div class="skill-item">Python <span class="note">analysis, modeling</span></div>
+          <div class="skill-item">R</div>
+          <div class="skill-item">Financial Modeling <span class="note">Monte Carlo</span></div>
+          <div class="skill-item">Excel <span class="note">Microsoft Certified</span></div>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Visualization &amp; BI</h3>
+        <div class="skill-list">
+          <div class="skill-item">Tableau</div>
+          <div class="skill-item">Streamlit <span class="note">dashboards</span></div>
+          <div class="skill-item">Google Analytics 4</div>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Marketing &amp; Creative</h3>
+        <div class="skill-list">
+          <div class="skill-item">Content &amp; Social Strategy</div>
+          <div class="skill-item">Adobe Photoshop / Illustrator</div>
+          <div class="skill-item">Premiere Pro</div>
+          <div class="skill-item">AI-assisted development <span class="note">Copilot</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-label">Background</div>
+        <h2 class="section-title">How I got here</h2>
+      </div>
+    </div>
+
+    <div class="trajectory reveal">
+      <div class="trajectory-text">
+        <p>
+          I'm finishing a <strong>Master of Business Analytics &amp; AI</strong> at Tulane's Freeman School of
+          Business, after a Bachelor's in Communications &amp; Health and Wellness, also at Tulane, where I
+          played Division I volleyball on a full athletic scholarship for four years. That background shows up
+          in how I work: I'm used to high-pressure environments, tight feedback loops, and showing up prepared
+          whether or not anyone's watching.
+        </p>
+        <p>
+          My path into analytics wasn't a straight line from a CS degree. It came from marketing and content
+          work, where I kept finding myself more interested in <em>why</em> a campaign worked than in making
+          the next one. That curiosity is what pulled me toward SQL, modeling, and dashboards, and it's also
+          why I think analytics work that ignores the business and marketing context around the numbers is
+          usually missing the point.
+        </p>
+        <p>
+          <strong>What I'm looking for next:</strong> an analytics role, in data, marketing analytics, or
+          something at the intersection, where I can own a real problem end to end: pull the data, find the
+          signal, build the model, and make the case for what to do about it.
+        </p>
+      </div>
+
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-date">Feb – May 2026</div>
+          <div class="tl-role">Business Analyst Intern, Pricing &amp; Revenue Analytics</div>
+          <div class="tl-org">Premium Parking</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Jan 2026 – Present</div>
+          <div class="tl-role">Marketing Attendant</div>
+          <div class="tl-org">Tulane Riley Recreation Center</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Jan – May 2025</div>
+          <div class="tl-role">Marketing &amp; Social Media Intern</div>
+          <div class="tl-org">Locker Room Finance (grew following ~300 to 1,000+)</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Dec 2023 – Present</div>
+          <div class="tl-role">Video &amp; Broadcasting Crew Member</div>
+          <div class="tl-org">Tulane Athletics Broadcasting (live ESPN+ production)</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Sep 2022 – Dec 2026</div>
+          <div class="tl-role">NCAA Division I Student-Athlete, Volleyball</div>
+          <div class="tl-org">Tulane University (3x All-Academic Team)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="focus">
+  <div class="wrap">
+    <div class="focus-banner reveal">
+      <div>
+        <div class="label">What's next</div>
+        <h3>Looking for an analytics or marketing-analytics role where I can take a messy dataset all the way to a decision someone acts on.</h3>
+      </div>
+      <a href="#contact" class="btn btn-primary">Let's talk</a>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-top reveal">
+      <div class="footer-cta">
+        <h2>Let's talk.</h2>
+        <p>Open to analytics and marketing analytics roles. The fastest way to reach me is email, and I respond quickly.</p>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:abeksha@tulane.edu">abeksha@tulane.edu</a>
+        <a href="tel:+15047088562">+1 (504) 708-8562</a>
+        <a href="https://www.linkedin.com/in/agata-beksha/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="resume.pdf" target="_blank" rel="noopener">Download résumé (PDF) ↗</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="mono">AGATA BEKSHA · NEW ORLEANS, LA</span>
+      <span>Built with intent, not a template.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
